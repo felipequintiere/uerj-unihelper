@@ -1,0 +1,22 @@
+# object files
+*.o
+
+# dependency files
+*.d
+
+# executáveis
+a.out
+*.out
+*.exe
+
+# arquivos de dados
+dados.bin
+*.bin
+
+# vim/emacs
+*.swp
+*.swo
+*.swx
+*~
+\#*\#
+.\#*
