@@ -86,3 +86,4 @@ Consiste em um sistema de gerenciamento acadêmico para a administração de inf
 1. Persistência de Dados\
     armazenamento em arquivo binário (dados.bin)\
     estrutura de registro fixa (438 bytes por entrada)
+
