@@ -11,14 +11,14 @@ make all && make clean
 O programa pode ser executado com as seguintes flags:
 
 ```bash
-$ ./a.out --help
+$ ./unihelper --help
 Usage: ./a.out [OPTION]... [FILE]...
 
   -f, --file <FILE>        path to data file
   -v, --version     output version information and exit
   -h, --help        display this help and exit
 ```
-nota: caso não seja especificado um arquivo por meio da flag '-f', o padrão 'dados.bin' será usado
+nota: caso não seja especificado um arquivo por meio da flag `-f`, o arquivo de destino padrão `dados.bin` será usado
 
 ---
 &nbsp;
