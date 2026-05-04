@@ -1,1 +1,88 @@
-# uerj-unihelper
+### UNIHELPER - SISTEMA DE GERENCIAMENTO ACADÊMICO
+
+&nbsp;
+#### **Domínio da Aplicação**
+
+Consiste em um sistema de gerenciamento acadêmico para a administração de informações de alunos e docentes. O UniHelper permite o cadastro, edição, consulta e remoção de registros acadêmicos e gestão de grades horárias.
+
+---
+
+&nbsp;
+#### **Informações Gerenciadas**
+
+1. **Registro Principal**
+    ```c
+    typedef struct {  // ESTRUTRURA COMUM ENTRE OS TIPOS
+        //bool status_de_validacao;
+        short int status_de_validacao;  // indicador de remoção
+        unsigned int id_unico;  // gerado automaticamente
+
+        //signed char nome[NOME_LEN+1];
+        char nome[NOME_LEN+1]; // fgets espera 'char *' e não 'unsigned char*'
+        int numero_de_disciplinas;
+        int grade[DIAS][TURNOS];
+        // grade de horários [i][j]
+        //     i: dias da semana (seg <-> sex)
+        //     j: horários (m1 <-> t3 <-> n6)
+        // nota: os elementos são os códigos de disciplinas
+
+        // nota: tamanho variável do tipo enum
+        enum {ALUNO = 0, PROFESSOR} tipo;
+        union {
+            Dados_aluno aluno;
+            Dados_professor professor;
+        } dados;
+        // nota: structs/unions anônimos são padrão apenas a partir
+        // do C11
+    } Membro;
+    ```
+
+1. **Registro do aluno**
+    ```c
+    typedef struct {  // ESTRUTURA ALUNO
+        unsigned long long matricula;
+        unsigned short int periodo;
+    } Dados_aluno;
+    ```
+
+1. **Registro do professor**
+    ```c
+    typedef struct {  // ESTRUTURA PROFESSOR
+        unsigned long long registro;
+        float salario;
+    } Dados_professor;
+    ```
+
+---
+
+&nbsp;
+#### **Operações desenvolvidas**
+
+0. Escolha do arquivo de leitura/escrita dos dados
+    `$ ./unihelper -f "nome_do_arquivo"`
+
+1. Criação de Registros\
+    cadastro de novos alunos e professores\
+    preenchimento de dados pessoais e acadêmicos\
+    definição de grades horárias
+
+1. Edição de Registros\
+    modificação de informações pessoais\
+    atualização de grades horárias\
+    adição/remoção de disciplinas (alunos) ou turmas (professores)\
+    restauração de registros previamente removidos
+
+1. Remoção de Registros\
+    exclusão lógica de registros (marcado como inválido)
+
+1. Busca e Consulta\
+    Busca por ID único\
+    Busca por nome (uso de prefixo)
+
+1. Visualização\
+    exibição detalhada de registros individuais\
+    listagem completa: exibição de todos os registros ativos
+
+1. Persistência de Dados\
+    armazenamento em arquivo binário (dados.bin)\
+    estrutura de registro fixa (438 bytes por entrada)
