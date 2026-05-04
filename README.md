@@ -58,7 +58,7 @@ Consiste em um sistema de gerenciamento acadêmico para a administração de inf
 &nbsp;
 #### **Operações desenvolvidas**
 
-0. Escolha do arquivo de leitura/escrita dos dados
+0. Escolha do arquivo de leitura/escrita dos dados\
     `$ ./unihelper -f "nome_do_arquivo"`
 
 1. Criação de Registros\
