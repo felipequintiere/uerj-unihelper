@@ -18,6 +18,7 @@ Usage: ./a.out [OPTION]... [FILE]...
   -v, --version     output version information and exit
   -h, --help        display this help and exit
 ```
+nota: caso não seja especificado um arquivo por meio da flag '-f', o padrão 'dados.bin' será usado
 
 ---
 &nbsp;
@@ -26,8 +27,6 @@ Usage: ./a.out [OPTION]... [FILE]...
 #### **Domínio da Aplicação**
 
 Consiste em um sistema de gerenciamento acadêmico para a administração de informações de alunos e docentes. O UniHelper permite o cadastro, edição, consulta e remoção de registros acadêmicos e gestão de grades horárias.
-
----
 
 #### **Informações Gerenciadas**
 
