@@ -24,7 +24,7 @@ nota: caso não seja especificado um arquivo por meio da flag `-f`, o arquivo de
 
 #### **Domínio da Aplicação**
 
-Consiste em um sistema de gerenciamento acadêmico para a administração de informações de alunos e docentes. O UniHelper permite o cadastro, edição, consulta e remoção de registros acadêmicos e gestão de grades horárias.
+Consiste em um sistema de gerenciamento acadêmico para a administração de informações de alunos e docentes. O `unihelper` permite o cadastro, edição, consulta e remoção de registros acadêmicos e gestão de grades horárias.
 
 #### **Informações Gerenciadas**
 
@@ -95,12 +95,12 @@ Consiste em um sistema de gerenciamento acadêmico para a administração de inf
 
 1. Busca e Consulta\
     Busca por ID único\
-    Busca por nome (uso de prefixo)
+    Busca por nome (por parte do nome)
 
 1. Visualização\
     exibição detalhada de registros individuais\
     listagem completa: exibição de todos os registros ativos
 
 1. Persistência de Dados\
-    armazenamento em arquivo binário (dados.bin)\
-    estrutura de registro fixa (438 bytes por entrada)
+    armazenamento em arquivo binário\
+    estrutura de registro fixa (451 bytes por entrada)
