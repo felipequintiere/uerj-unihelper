@@ -8,8 +8,6 @@ make all && make clean
 ```
 
 #### Uso do programa
-O programa pode ser executado com as seguintes flags:
-
 ```bash
 $ ./unihelper --help
 Usage: ./a.out [OPTION]... [FILE]...
