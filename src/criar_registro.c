@@ -118,10 +118,10 @@ void gerar_grade(Membro *membro)
 	int horario;
 
 	PRINT_STR(BLUE,
-		" nota:\n"
-		"  1. insira '0' no prompt para retornar;\n"
-		"  2. insira o código de disciplina '0' para excluir uma aula,\n"
-		"  caso contrário, utilize um código de 5 dígitos;\n"
+		" notas:\n"
+		"  1. insira '0' em 'código de disciplina' para excluir uma aula,\n"
+		"  2. insira '0' no prompt de 'dia/horário' para retornar;\n"
+		"  3. códigos reais de disciplinas possuem 5 dígitos;\n\n"
 	);
 	for(;;)
 	{
@@ -146,7 +146,6 @@ void gerar_grade(Membro *membro)
 					break;
 				}
 			}
-
 			PRINT_STR(RED,"\ntente novamente: ");
 		}
 		if (dia == 0)
@@ -160,15 +159,23 @@ void gerar_grade(Membro *membro)
 			{
 				ler_entrada(ENTRADA_LEN+1,entrada);
 				if (sscanf(entrada,"%d",&horario)==1)
-					break;
-
+				{
+					if (horario >= 0 && horario <=18)
+					{
+						break;
+					}
+				}
 				PRINT_STR(RED,"\ntente novamente: ");
-
 			}
+
 			if (horario >=1 && horario <= 18)
+			{
 				membro->grade[dia-1][horario-1] = codigo;
+			}
 			else if (horario == 0)
+			{
 				break;
+			}
 		}
 	}
 }

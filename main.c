@@ -8,6 +8,7 @@
 
 #include "./include/macros.h"
 #include "./include/types.h"
+
 #include "./include/flags.h"
 #include "./include/util.h"
 #include "./include/ler_entrada.h"
@@ -24,17 +25,22 @@ int main(int argc, char *argv[])
 
 	if (argc >= 2)
 	{
+		// mesmo que os if's dentro desse compound statement sejam
+		// mutuamente exclusivos, o uso do `else if` foi apenas
+		// empregado para maior clareza
 		if (!strcmp("-h",argv[1]) || !strcmp("--help",argv[1]))
 		{
-			flag_help(argv[0]);	 // argv[0]: nome do programa
+			flag_help(argv[0]); // argv[0]: nome do programa
 			exit(EXIT_SUCCESS);
 		}
-		if (!strcmp(argv[1],"-v") || !strcmp(argv[1],"--version"))
+
+		else if (!strcmp(argv[1],"-v") || !strcmp(argv[1],"--version"))
 		{
 			flag_version(argv[0]);
 			exit(EXIT_SUCCESS);
 		}
-		if (!strcmp(argv[1],"-f") || !strcmp(argv[1],"--file"))
+
+		else if (!strcmp(argv[1],"-f") || !strcmp(argv[1],"--file"))
 		{
 			if (argc == 2)
 			{
@@ -44,6 +50,7 @@ int main(int argc, char *argv[])
 				);
 				exit(EXIT_FAILURE);
 			}
+
 			else if (argc > 3)
 			{
 				fprintf(stderr,
@@ -51,32 +58,45 @@ int main(int argc, char *argv[])
 					"\n\nFor more information, try '--help'.\n", argv[3]
 				);
 				exit(EXIT_FAILURE);
+				// argv[3]: quarto argumento passado para o programa
 			}
+
 			else
 			{
+				// nesse caso, são passados exatamente três argumentos
+				// (incluindo o nome do programa)
+				//     ./nome_do_programa -f nome_do_arquivo
+
+				// se o arquivo não existir, o programa pode exigir que o
+				// usuário o crie manualmente; basta descomentar o bloco
+				// abaixo
 				/*
-				// para forçar o usuário a criar o arquivo
 				FILE *fp;
 				if ((fp = fopen(argv[2],"rb")) == NULL)
 				{
-					fprintf(stderr,"error: file '%s' does not exist\n",argv[2]);
+					fprintf(stderr,
+						"error: file '%s' does not exist\n",argv[2]
+					);
 					exit(EXIT_FAILURE);
 				}
 				fclose(fp);
 				*/
 
-				arquivo = argv[2]; // armazenar o nome do arquivo escolhido
-				PRINT_DEBUG("%s\n",arquivo);
+				arquivo = argv[2]; // armazena o nome do arquivo escolhido
+				PRINT_DEBUG("\nnome do arquivo escolhido: %s\n",arquivo);
 			}
 		}
+
 		else
 		{
-			flag_invalid(argv);	 // passa todos os argumentos
+			flag_invalid(argv);	// passa todos os argumentos
 			exit(EXIT_FAILURE);
 		}
 	}
 
-#if defined(DEBUG) && DEBUG==1
+#if !defined(DEBUG)
+	system("clear||cls");
+#elif defined(DEBUG) && DEBUG==0
 	system("clear||cls");
 #endif
 
@@ -91,7 +111,7 @@ int main(int argc, char *argv[])
 		"[4] buscar registro por id\n"
 		"[5] buscar registro por nome\n"
 		"[6] listar registros\n"
-		"[7] sair\n\n");
+		"[7-9] sair\n\n");
 		PRINT_STR(PURPLE,"Escolha uma opção: ");
 
 		ler_entrada(ENTRADA_LEN+1,entrada);	
@@ -113,14 +133,16 @@ int main(int argc, char *argv[])
 			case '3': remover_registro(arquivo); // ./src/remover_registro.c
 				break;
 			case '4': 
-					  system("clear||cls");
-					  buscar_registro_id(arquivo); // ./src/util.c
+				system("clear||cls");
+				buscar_registro_id(arquivo); // ./src/util.c
 				break;
 			case '5': buscar_registro_nome(arquivo); // ./src/buscar_registro_nome.c
 				break;
 			case '6': listar_registros(arquivo); // ./src/util.c
 				break;
-			case '7': exit(EXIT_SUCCESS);
+			case '7':
+			case '8':
+			case '9': exit(EXIT_SUCCESS);
 
 			default:
 				fprintf(stderr,"opção '%c' inválida!\n",entrada[0]);

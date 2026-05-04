@@ -72,7 +72,7 @@ void editar_registro(const char * const arquivo)
 		"[3] período\n"
 		"[4] n° de disciplinas\n"
 		"[5] grade\n"
-		"[6-7] sair\n\n");
+		"[6-9] sair\n\n");
 		PRINT_STR(GREEN,"escolha uma opção: ");
 		for (;;)
 		{
@@ -139,6 +139,8 @@ void editar_registro(const char * const arquivo)
 			}
 			case '6':
 			case '7':
+			case '8':
+			case '9':
 					  return;
 			default:
 				fprintf(stderr,"opção '%c' inválida!\n",entrada[0]);
@@ -152,7 +154,7 @@ void editar_registro(const char * const arquivo)
 		"[3] salário\n"
 		"[4] n° de disciplinas\n"
 		"[5] grade\n"
-		"[6-7] sair\n\n");
+		"[6-9] sair\n\n");
 		PRINT_STR(GREEN,"escolha uma opção: ");
 		for (;;)
 		{
@@ -219,6 +221,8 @@ void editar_registro(const char * const arquivo)
 			}
 			case '6':
 			case '7':
+			case '8':
+			case '9':
 					  return;
 			default:
 				fprintf(stderr,"opção '%c' inválida!\n",entrada[0]);
