@@ -3,7 +3,8 @@ CC := cc
 CPPFLAGS := -DDEBUG=0
 CFLAGS := -Wall -Wextra -Werror -O2
 
-BINARY := a.out
+#BINARY := a.out
+BINARY := unihelper
 
 SOURCE_FILES := $(wildcard ./*.c ./src/*.c)
 OBJECTS := $(patsubst %.c,%.o,$(SOURCE_FILES))

@@ -5,6 +5,7 @@
 *.d
 
 # executáveis
+unihelper
 a.out
 *.out
 *.exe

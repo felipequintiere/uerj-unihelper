@@ -1,13 +1,34 @@
 ### UNIHELPER - SISTEMA DE GERENCIAMENTO ACADÊMICO
 
+#### Instalação
+``` bash
+git clone https://github.com/felipequintiere/uerj-unihelper.git
+cd uerj-unihelper
+make all && make clean
+```
+
+#### Uso do programa
+O programa pode ser executado com as seguintes flags:
+
+```bash
+$ ./a.out --help
+Usage: ./a.out [OPTION]... [FILE]...
+
+  -f, --file <FILE>        path to data file
+  -v, --version     output version information and exit
+  -h, --help        display this help and exit
+```
+
+---
 &nbsp;
+
+
 #### **Domínio da Aplicação**
 
 Consiste em um sistema de gerenciamento acadêmico para a administração de informações de alunos e docentes. O UniHelper permite o cadastro, edição, consulta e remoção de registros acadêmicos e gestão de grades horárias.
 
 ---
 
-&nbsp;
 #### **Informações Gerenciadas**
 
 1. **Registro Principal**
@@ -86,4 +107,3 @@ Consiste em um sistema de gerenciamento acadêmico para a administração de inf
 1. Persistência de Dados\
     armazenamento em arquivo binário (dados.bin)\
     estrutura de registro fixa (438 bytes por entrada)
-
