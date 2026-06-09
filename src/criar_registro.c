@@ -8,8 +8,8 @@
 
 void criar_registro(int prox_id_unico, const char * const arquivo)
 {
-	Membro membro = {0};
-	char entrada[ENTRADA_LEN+1];
+	Membro	membro = {0};
+	char	entrada[ENTRADA_LEN+1];
 
 	system("clear||cls");
 	PRINT_STR(PURPLE,"CRIANDO REGISTRO:\n");
@@ -18,8 +18,7 @@ void criar_registro(int prox_id_unico, const char * const arquivo)
 	ler_entrada(NOME_LEN+1,membro.nome); // espera char* (não signed char*)
 
 	PRINT_STR(GREEN,"aluno(0) ou professor(1): ");
-	for (;;)
-	{
+	for (;;) {
 		int tmp;
 		ler_entrada(ENTRADA_LEN+1,entrada);
 		if (sscanf(entrada,"%d",&tmp) == 1)
@@ -34,57 +33,47 @@ void criar_registro(int prox_id_unico, const char * const arquivo)
 		PRINT_STR(RED,"\ntente novamente: ");
 	}
 
-	switch (membro.tipo)
-	{
-		case ALUNO:
-		{
-			PRINT_DEBUG("tipo ALUNO\n");
-			PRINT_STR(GREEN,"matrícula: ");
-			for (;;)
-			{
-				ler_entrada(ENTRADA_LEN+1,entrada);
-				if (sscanf(entrada,"%llu", &membro.dados.aluno.matricula) == 1)
-					break;
+	switch (membro.tipo) {
+	case ALUNO:
+		PRINT_DEBUG("tipo ALUNO\n");
+		PRINT_STR(GREEN,"matrícula: ");
+		for (;;) {
+			ler_entrada(ENTRADA_LEN+1,entrada);
+			if (sscanf(entrada,"%llu", &membro.dados.aluno.matricula) == 1)
+				break;
 
-				PRINT_STR(RED,"\ntente novamente: ");
-			}
-
-			PRINT_STR(GREEN,"período: ");
-			for (;;)
-			{
-				ler_entrada(ENTRADA_LEN+1,entrada);
-				if (sscanf(entrada,"%hu", &membro.dados.aluno.periodo) == 1)
-					break;
-
-				PRINT_STR(RED,"\ntente novamente: ");
-			}
-			break;
+			PRINT_STR(RED,"\ntente novamente: ");
 		}
 
-		case PROFESSOR:
-		{
-			PRINT_DEBUG("tipo PROFESSOR\n");
-			PRINT_STR(GREEN,"registro: ");
-			for (;;)
-			{
-				ler_entrada(ENTRADA_LEN+1,entrada);
-				if (sscanf(entrada,"%llu",&membro.dados.professor.registro)==1)
-					break;
+		PRINT_STR(GREEN,"período: ");
+		for (;;) {
+			ler_entrada(ENTRADA_LEN+1,entrada);
+			if (sscanf(entrada,"%hu", &membro.dados.aluno.periodo) == 1)
+				break;
 
-				PRINT_STR(RED,"\ntente novamente: ");
-			}
-
-			PRINT_STR(GREEN,"salário: ");
-			for (;;)
-			{
-				ler_entrada(ENTRADA_LEN+1,entrada);
-				if (sscanf(entrada,"%f",&membro.dados.professor.salario)==1)
-					break;
-
-				PRINT_STR(RED,"\ntente novamente: ");
-			}
-			break;
+			PRINT_STR(RED,"\ntente novamente: ");
 		}
+		break;
+	case PROFESSOR:
+		PRINT_DEBUG("tipo PROFESSOR\n");
+		PRINT_STR(GREEN,"registro: ");
+		for (;;) {
+			ler_entrada(ENTRADA_LEN+1,entrada);
+			if (sscanf(entrada,"%llu",&membro.dados.professor.registro)==1)
+				break;
+
+			PRINT_STR(RED,"\ntente novamente: ");
+		}
+
+		PRINT_STR(GREEN,"salário: ");
+		for (;;) {
+			ler_entrada(ENTRADA_LEN+1,entrada);
+			if (sscanf(entrada,"%f",&membro.dados.professor.salario)==1)
+				break;
+
+			PRINT_STR(RED,"\ntente novamente: ");
+		}
+		break;
 	}
 
 	PRINT_STR(GREEN,"n° de disciplinas: ");
@@ -104,7 +93,7 @@ void criar_registro(int prox_id_unico, const char * const arquivo)
 	membro.id_unico = prox_id_unico;
 	membro.status_de_validacao = 1; //true
 
-	Membro *ptr_membro = &membro;	
+	Membro *ptr_membro = &membro;
 	registro_para_arquivo(ptr_membro,prox_id_unico,arquivo);
 }
 
@@ -112,22 +101,21 @@ void criar_registro(int prox_id_unico, const char * const arquivo)
 
 void gerar_grade(Membro *membro)
 {
-	char entrada[ENTRADA_LEN+1];
-	int codigo;
-	int dia;
-	int horario;
+	char	entrada[ENTRADA_LEN+1];
+	int	codigo;
+	int	dia;
+	int	horario;
 
 	PRINT_STR(BLUE,
 		" notas:\n"
-		"  1. insira '0' em 'código de disciplina' para excluir uma aula,\n"
+		" 1. insira '0' em 'código de disciplina' para excluir uma "
+		"aula;\n"
 		"  2. insira '0' no prompt de 'dia/horário' para retornar;\n"
 		"  3. códigos reais de disciplinas possuem 5 dígitos;\n\n"
 	);
-	for(;;)
-	{
+	for(;;) {
 		PRINT_STR(BLUE,"escolha o código da disciplina: ");
-		for (;;)
-		{
+		for (;;) {
 			ler_entrada(ENTRADA_LEN+1,entrada);
 			if (sscanf(entrada,"%d",&codigo)==1)
 				break;
@@ -136,13 +124,10 @@ void gerar_grade(Membro *membro)
 		}
 
 		PRINT_STR(CYAN,"escolha o dia da semana [1-5]: ");
-		for (;;)
-		{
+		for (;;) {
 			ler_entrada(ENTRADA_LEN+1,entrada);
-			if (sscanf(entrada,"%d",&dia)==1)
-			{
-				if (dia >= 0 && dia <=5)
-				{
+			if (sscanf(entrada,"%d",&dia)==1) {
+				if (dia >= 0 && dia <=5) {
 					break;
 				}
 			}
@@ -152,28 +137,22 @@ void gerar_grade(Membro *membro)
 			break;
 
 
-		for(;;)
-		{
+		for(;;) {
 			PRINT_STR(YELLOW,"escolha o horário [1-18]: ");
-			for(;;)
-			{
+			for(;;) {
 				ler_entrada(ENTRADA_LEN+1,entrada);
-				if (sscanf(entrada,"%d",&horario)==1)
-				{
-					if (horario >= 0 && horario <=18)
-					{
+				if (sscanf(entrada,"%d",&horario)==1) {
+					if (horario >= 0 && horario <=18) {
 						break;
 					}
 				}
 				PRINT_STR(RED,"\ntente novamente: ");
 			}
 
-			if (horario >=1 && horario <= 18)
-			{
+			if (horario >=1 && horario <= 18) {
 				membro->grade[dia-1][horario-1] = codigo;
 			}
-			else if (horario == 0)
-			{
+			else if (horario == 0) {
 				break;
 			}
 		}

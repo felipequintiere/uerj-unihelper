@@ -11,10 +11,11 @@ void editar_registro(const char * const arquivo)
 {
 	char entrada[ENTRADA_LEN+1];
 	int id = -1;
-	
-	if (id_unico_prox(arquivo) == 0)
-	{
-		PRINT_STR(RED,"\nnão há dados armazenados em '%s'\n",arquivo);
+
+	if (id_unico_prox(arquivo) == 0) {
+		PRINT_STR(RED,
+			  "\nnão há dados armazenados em '%s'\n",
+			  arquivo);
 		return;
 	}
 

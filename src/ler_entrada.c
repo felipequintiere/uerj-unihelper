@@ -9,12 +9,14 @@ void ler_entrada(int tamanho, char entrada[tamanho])
 	{
 		// fgets retorna NULL quando ocorre:
 		//     erro de leitura
-		//     eof antes da leitura de caracteres 
+		//     eof antes da leitura de caracteres
 		if (feof(stdin))
 		{
 			fprintf(stderr,"\n"
-				"    end of file occurs while no characters have been read\n"	
-				"    end-of-file indicator is set for the stream\n\n"
+				"    end of file occurs while no characters have"
+				" been read\n"
+				"    end-of-file indicator is set for the"
+				" stream\n\n"
 			);
 		}
 		if (ferror(stdin))
@@ -24,16 +26,16 @@ void ler_entrada(int tamanho, char entrada[tamanho])
 				"    error indicator is set for the stream\n\n"
 			);
 		}
-		clearerr(stdin);	
+		clearerr(stdin);
 
 		PRINT_STR(PURPLE,"tente novamente: ");
 	}
 
 	// remover \n (\n\r ou \r) da string que armazena a entrada do usuário
 	int i = 0;
-	for (i=0; i<tamanho; i++)
+	for (i = 0; i < tamanho; i++)
 	{
-		if (entrada[i] == '\n' || entrada[i] == '\r') 
+		if (entrada[i] == '\n' || entrada[i] == '\r')
 		{
 			entrada[i] = '\0';
 			break;
@@ -41,7 +43,7 @@ void ler_entrada(int tamanho, char entrada[tamanho])
 	}
 
 	// garantir que a string tenha ao menos um caractere
-	if (i==0)
+	if (i == 0)
 	{
 		fprintf(stderr,
 			"entrada <RET> inválida\n\n"

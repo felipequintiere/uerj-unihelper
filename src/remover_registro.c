@@ -25,12 +25,10 @@ void remover_registro(const char * const arquivo)
 	// escreve do aquivo binário para o registro na memória
 	arquivo_para_registro(membro,id,arquivo);
 
-	if (membro->status_de_validacao == 0)
-	{
+	if (membro->status_de_validacao == 0) {
 		PRINT_STR(RED,"\nO REGISTRO JÁ HAVIA SIDO REMOVIDO\n");
 	}
-	else
-	{
+	else {
 		//mostrar_registro(membro);
 		PRINT_STR(RED,"\nO REGISTRO FOI REMOVIDO\n");
 		membro->status_de_validacao = 0;
