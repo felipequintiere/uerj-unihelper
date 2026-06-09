@@ -9,12 +9,12 @@ make all && make clean
 
 #### Uso do programa
 ```bash
-$ ./unihelper --help
+$ ./unihelper -h
 Usage: ./a.out [OPTION]... [FILE]...
 
-  -f, --file <FILE>        path to data file
-  -v, --version     output version information and exit
-  -h, --help        display this help and exit
+  -f <FILE>     path to data file
+  -v            output version information and exit
+  -h            display this help and exit
 ```
 nota: caso não seja especificado um arquivo por meio da flag `-f`, o arquivo de destino padrão `dados.bin` será usado
 
