@@ -23,8 +23,8 @@
 
 int main(int argc, char *argv[])
 {
-	char	*arquivo = ARQUIVO_DADOS;
-	int	 flag_option;
+	char    *arquivo = ARQUIVO_DADOS;
+	int      flag_option;
 
 	while ((flag_option = getopt(argc, argv, "hvf:")) != -1) {
 		switch (flag_option) {

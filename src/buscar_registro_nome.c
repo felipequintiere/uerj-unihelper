@@ -9,8 +9,8 @@
 
 void buscar_registro_nome(const char * const arquivo)
 {
-	char	 entrada[NOME_LEN+1];
-	Membro	*membro = (Membro*) malloc(sizeof(Membro));
+	char     entrada[NOME_LEN+1];
+	Membro  *membro = (Membro*) malloc(sizeof(Membro));
 
 	int ultimo_id;
 	if ((ultimo_id = id_unico_prox(arquivo)) == 0) {

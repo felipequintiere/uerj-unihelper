@@ -8,8 +8,8 @@
 
 void criar_registro(int prox_id_unico, const char * const arquivo)
 {
-	Membro	membro = {0};
-	char	entrada[ENTRADA_LEN+1];
+	Membro  membro = {0};
+	char    entrada[ENTRADA_LEN+1];
 
 	system("clear||cls");
 	PRINT_STR(PURPLE,"CRIANDO REGISTRO:\n");
@@ -101,10 +101,10 @@ void criar_registro(int prox_id_unico, const char * const arquivo)
 
 void gerar_grade(Membro *membro)
 {
-	char	entrada[ENTRADA_LEN+1];
-	int	codigo;
-	int	dia;
-	int	horario;
+	char    entrada[ENTRADA_LEN+1];
+	int     codigo;
+	int     dia;
+	int     horario;
 
 	PRINT_STR(BLUE,
 		" notas:\n"

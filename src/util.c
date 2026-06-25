@@ -176,8 +176,8 @@ void mostrar_registro(Membro *membro)
 // quarta opção do programa
 int buscar_registro_id(const char * const arquivo)
 {
-	char entrada[ENTRADA_LEN+1];
-	int id = -1;
+	char    entrada[ENTRADA_LEN+1];
+	int     id = -1;
 
 	if (id_unico_prox(arquivo) == 0) {
 		PRINT_STR(RED,
