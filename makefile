@@ -1,6 +1,6 @@
 CC := cc
 #CPPFLAGS := -DDEBUG=1 -I./include 
-CPPFLAGS := -DDEBUG=1
+CPPFLAGS := -DDEBUG=0
 CFLAGS := -Wall -Wextra -Werror -O2
 
 BINARY := a.out

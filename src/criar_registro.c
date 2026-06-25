@@ -108,7 +108,7 @@ void gerar_grade(Membro *membro)
 
 	PRINT_STR(BLUE,
 		" notas:\n"
-		" 1. insira '0' em 'código de disciplina' para excluir uma "
+		"  1. insira '0' em 'código de disciplina' para excluir uma "
 		"aula;\n"
 		"  2. insira '0' no prompt de 'dia/horário' para retornar;\n"
 		"  3. códigos reais de disciplinas possuem 5 dígitos;\n\n"
