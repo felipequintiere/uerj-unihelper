@@ -1,4 +1,11 @@
 ### UNIHELPER - SISTEMA DE GERENCIAMENTO ACADÊMICO
+Este repositório contém arquivos referentes ao trabalho realizado para obtenção de nota parcial na disciplina de Linguagem de Programação 1 (LP1), do curso de ciência da computação da Universidade do Estado do Rio de Janeiro (UERJ).
+
+#### **Domínio da Aplicação**
+Consiste em um sistema de gerenciamento acadêmico para a administração de informações de alunos e docentes. O `unihelper` permite o cadastro, edição, consulta e remoção de registros acadêmicos e gestão de grades horárias.
+
+---
+&nbsp;
 
 #### Instalação
 ``` bash
@@ -16,15 +23,11 @@ Usage: ./a.out [OPTION]... [FILE]...
   -v            output version information and exit
   -h            display this help and exit
 ```
-nota: caso não seja especificado um arquivo por meio da flag `-f`, o arquivo de destino padrão `dados.bin` será usado
+nota: caso a opção `-f` não seja especificada, o arquivo de destino padrão `dados.bin` será usado
 
 ---
 &nbsp;
 
-
-#### **Domínio da Aplicação**
-
-Consiste em um sistema de gerenciamento acadêmico para a administração de informações de alunos e docentes. O `unihelper` permite o cadastro, edição, consulta e remoção de registros acadêmicos e gestão de grades horárias.
 
 #### **Informações Gerenciadas**
 
