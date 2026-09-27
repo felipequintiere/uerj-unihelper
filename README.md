@@ -17,7 +17,7 @@ make all && make clean
 #### Uso do programa
 ```bash
 $ ./unihelper -h
-Usage: ./a.out [OPTION]... [FILE]...
+Usage: ./unihelper [OPTION]... [FILE]...
 
   -f <FILE>     path to data file
   -v            output version information and exit
