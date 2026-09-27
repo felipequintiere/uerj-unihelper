@@ -18,6 +18,10 @@
 #define CYAN            "\033[0;96m"
 #define LIGHT_GRAY      "\033[0;97m"
 
+/* fmt - format strings - */
+#define PRINT_STR(COLOR,fmt, ...) \
+	printf(COLOR fmt RESET, ##__VA_ARGS__)
+
 /* o macro DEBUG é definido no makefile  */
 #if defined(DEBUG) && DEBUG==1
 	#define PRINT_DEBUG(fmt, ...) \
@@ -26,7 +30,3 @@
 #else
 	#define PRINT_DEBUG(fmt, ...) do {} while(0)
 #endif
-
-/* fmt - format strings - */
-#define PRINT_STR(COLOR,fmt, ...) \
-	printf(COLOR fmt RESET, ##__VA_ARGS__)
