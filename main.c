@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <unistd.h>
-#include <string.h>
-#include <stdbool.h>
 
-// #include <stdint.h>
-// #include <inttypes.h>  // format specifiers
+// test format specifiers
+//#include <stdint.h>
+//#include <inttypes.h>
 
 #include "./include/macros.h"
 #include "./include/types.h"
@@ -19,13 +17,12 @@
 #include "./include/remover_registro.h"
 #include "./include/buscar_registro_nome.h"
 
-#define ARQUIVO_DADOS "./dados.bin"
-
 int main(int argc, char *argv[])
 {
-	char    *arquivo = ARQUIVO_DADOS;
-	int      flag_option;
+	/* modificar uma string literal resulta em UB */
+	const char *arquivo = "./dados.bin";
 
+	int flag_option;
 	while ((flag_option = getopt(argc, argv, "hvf:")) != -1) {
 		switch (flag_option) {
 		case 'h':
@@ -47,10 +44,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	PRINT_DEBUG("arquivo de dados: %s", arquivo);
-
 	char entrada[ENTRADA_LEN+1] = {0};
-
 	for (;;) {
 		PRINT_STR(CYAN,"\n"
 			  "[1] criar registro\n"
@@ -60,8 +54,8 @@ int main(int argc, char *argv[])
 			  "[5] buscar registro por nome\n"
 			  "[6] listar registros\n"
 			  "[7-9] sair\n\n");
-		PRINT_STR(PURPLE,"Escolha uma opção: ");
-		ler_entrada(ENTRADA_LEN+1,entrada);
+		PRINT_STR(PURPLE, "Escolha uma opção: ");
+		ler_entrada(ENTRADA_LEN + 1, entrada);
 
 		switch (entrada[0]) {
 		case '1':
@@ -89,7 +83,7 @@ int main(int argc, char *argv[])
 			exit(EXIT_SUCCESS);
 			break;
 		default:
-			fprintf(stderr,"opção '%c' inválida!\n", entrada[0]);
+			fprintf(stderr, "opção '%c' inválida!\n", entrada[0]);
 			break;
 		}
 	}
